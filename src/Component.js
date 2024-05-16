@@ -1,7 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function Component() {
-  return (
-    <div>MY Component 2024/05/15</div>
-  )
+
+    const [text, setText] = useState()
+    const [update, setUpdate] = useState()
+
+    const textOnChange = (event) => {
+        setText(event.target.value)
+    }
+    const buttonOnClick = () => {
+        setUpdate(text)
+    }
+
+
+    return (
+        <div>
+            <input type="text" value={text} onChange={textOnChange} />
+            <button onClick={buttonOnClick}>Actualizar</button>
+            <p>Texto input: {text}</p>
+            <p>Texto Actualizado: {update}</p>
+
+        </div>
+    )
 }
